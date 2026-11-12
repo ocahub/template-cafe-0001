@@ -1,0 +1,1354 @@
+{
+  "id": "template-cafe-0001",
+  "name": "Café 0001 · Torrefação",
+  "version": "1.0.0",
+  "description": "Loja de café especial com clube de assinatura: produtos com produtor, planos, cafeteria e contato. Verde-mata, cereja e pergaminho.",
+  "modules": [
+    "sales:CreateProduct"
+  ],
+  "groups": [
+    "Topo",
+    "Loja",
+    "Conteúdo",
+    "Contato"
+  ],
+  "theme": {
+    "palettes": [
+      {
+        "id": "mata",
+        "label": "Mata e cereja",
+        "primary": "#1E3A2D",
+        "primary2": "#2B4C3C",
+        "accent": "#A8232C",
+        "accent2": "#8C1C24",
+        "surface": "#E6DDC4",
+        "surface2": "#F1EBDB",
+        "bg": "#F2F3EE",
+        "ink": "#2A1C15",
+        "ink2": "#5B4A40",
+        "leaf": "#5E7F4F",
+        "line": "#D6D3C7"
+      },
+      {
+        "id": "torra",
+        "label": "Torra e caramelo",
+        "primary": "#3B2A20",
+        "primary2": "#4C382C",
+        "accent": "#B8692A",
+        "accent2": "#96541F",
+        "surface": "#EADFCF",
+        "surface2": "#F4EDE2",
+        "bg": "#F8F5F0",
+        "ink": "#2A1C15",
+        "ink2": "#6A584C",
+        "leaf": "#7C8B5A",
+        "line": "#DDD3C4"
+      },
+      {
+        "id": "serra",
+        "label": "Serra e ouro",
+        "primary": "#1D2B3A",
+        "primary2": "#2A3B4D",
+        "accent": "#B8892B",
+        "accent2": "#967022",
+        "surface": "#E4E0D3",
+        "surface2": "#EFEDE4",
+        "bg": "#F5F4EF",
+        "ink": "#1B2129",
+        "ink2": "#4F5966",
+        "leaf": "#4E6E5D",
+        "line": "#D4D4CC"
+      }
+    ],
+    "fonts": [
+      {
+        "id": "bricolage",
+        "label": "Moderna",
+        "display": "'Bricolage Grotesque', system-ui, sans-serif",
+        "body": "'Bricolage Grotesque', system-ui, sans-serif",
+        "weight": 800
+      },
+      {
+        "id": "classica",
+        "label": "Clássica",
+        "display": "'Fraunces', Georgia, serif",
+        "body": "'Bricolage Grotesque', system-ui, sans-serif",
+        "weight": 600
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "header",
+      "label": "Cabeçalho",
+      "group": "Global",
+      "global": true,
+      "description": "Faixa de aviso, logotipo, menu, conta e sacola. Aparece em todas as páginas.",
+      "fields": [
+        {
+          "key": "notice",
+          "label": "Faixa de aviso no topo",
+          "type": "area",
+          "optional": true,
+          "help": "Ex.: frete grátis acima de um valor. Vazio: sem faixa."
+        },
+        {
+          "key": "logoImage",
+          "label": "Logo (imagem)",
+          "type": "image",
+          "optional": true,
+          "help": "Sem imagem, vale o logotipo da loja; sem ele, o nome em texto."
+        },
+        {
+          "key": "shopLabel",
+          "label": "Nome da loja no menu",
+          "type": "text",
+          "help": "O link para a prateleira (/loja). Ex.: Cafés, Loja."
+        },
+        {
+          "key": "links",
+          "label": "Links a mais no menu",
+          "type": "items",
+          "min": 0,
+          "max": 4,
+          "itemTitle": "label",
+          "fields": [
+            {
+              "key": "label",
+              "label": "Texto",
+              "type": "text"
+            },
+            {
+              "key": "link",
+              "label": "Link",
+              "type": "text",
+              "help": "Ex.: /#cafeteria, /#contato."
+            }
+          ],
+          "newItem": {
+            "label": "Novo link",
+            "link": "/"
+          }
+        }
+      ]
+    },
+    {
+      "type": "hero",
+      "label": "Abertura com foto",
+      "group": "Topo",
+      "description": "Título grande, texto, dois botões, destaques e a foto. Fora da inicial, mostra o caminho (Início / página).",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "subtitle",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "button",
+          "label": "Botão principal",
+          "type": "text"
+        },
+        {
+          "key": "link",
+          "label": "Link do botão principal",
+          "type": "text",
+          "help": "Ex.: /loja, /clube ou um endereço completo. Vazio: abre o WhatsApp da loja."
+        },
+        {
+          "key": "button2",
+          "label": "Botão secundário",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "link2",
+          "label": "Link do botão secundário",
+          "type": "text",
+          "help": "Ex.: /loja, /clube ou um endereço completo. Vazio: abre o WhatsApp da loja."
+        },
+        {
+          "key": "facts",
+          "label": "Destaques",
+          "type": "items",
+          "min": 0,
+          "max": 3,
+          "itemTitle": "title",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Destaque",
+              "type": "text"
+            },
+            {
+              "key": "text",
+              "label": "Detalhe",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "title": "Novo destaque",
+            "text": "Detalhe"
+          }
+        },
+        {
+          "key": "image",
+          "label": "Foto",
+          "type": "image",
+          "optional": true
+        },
+        {
+          "key": "lot",
+          "label": "Etiqueta do produto em destaque sobre a foto",
+          "type": "select",
+          "options": [
+            {
+              "value": "sim",
+              "label": "Sim"
+            },
+            {
+              "value": "nao",
+              "label": "Não"
+            }
+          ],
+          "help": "O primeiro produto com produtor (fabricante) da loja."
+        }
+      ]
+    },
+    {
+      "type": "intro",
+      "label": "Apresentação de página",
+      "group": "Topo",
+      "description": "Topo de página interna: caminho, título, texto e foto ao lado.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "lead",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "image",
+          "label": "Foto",
+          "type": "image",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "type": "categories",
+      "label": "Categorias com foto",
+      "group": "Loja",
+      "description": "Uma faixa de atalhos com foto, nome e detalhe. Cada um leva a uma página (a loja, por padrão).",
+      "fields": [
+        {
+          "key": "items",
+          "label": "Atalhos",
+          "type": "items",
+          "min": 1,
+          "max": 8,
+          "itemTitle": "title",
+          "fields": [
+            {
+              "key": "image",
+              "label": "Foto",
+              "type": "image",
+              "optional": true
+            },
+            {
+              "key": "title",
+              "label": "Nome",
+              "type": "text"
+            },
+            {
+              "key": "small",
+              "label": "Detalhe",
+              "type": "text"
+            },
+            {
+              "key": "link",
+              "label": "Link",
+              "type": "text",
+              "help": "Ex.: /loja, /clube."
+            }
+          ],
+          "newItem": {
+            "title": "Nova categoria",
+            "small": "Detalhe",
+            "link": "/loja"
+          }
+        }
+      ]
+    },
+    {
+      "type": "lots",
+      "label": "Produtos com produtor",
+      "group": "Loja",
+      "description": "Cartões grandes dos produtos com produtor (fabricante): foto, nome, quem produziu e o preço.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Texto",
+          "type": "area",
+          "optional": true
+        },
+        {
+          "key": "button",
+          "label": "Link para a loja",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "source",
+          "label": "Quais produtos",
+          "type": "select",
+          "options": [
+            {
+              "value": "produtor",
+              "label": "Só os com produtor"
+            },
+            {
+              "value": "todos",
+              "label": "Todos"
+            }
+          ]
+        },
+        {
+          "key": "count",
+          "label": "Quantidade",
+          "type": "select",
+          "options": [
+            {
+              "value": "3",
+              "label": "3 produtos"
+            },
+            {
+              "value": "6",
+              "label": "6 produtos"
+            }
+          ]
+        },
+        {
+          "key": "priceLabel",
+          "label": "Texto acima do preço",
+          "type": "text",
+          "optional": true,
+          "help": "Ex.: 250g a partir de."
+        }
+      ]
+    },
+    {
+      "type": "shelf",
+      "label": "Mais vendidos",
+      "group": "Loja",
+      "description": "Uma prateleira compacta de produtos: foto, nome e preço.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "button",
+          "label": "Link para a loja",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "source",
+          "label": "Quais produtos",
+          "type": "select",
+          "options": [
+            {
+              "value": "sem-produtor",
+              "label": "Os sem produtor (acessórios, blends)"
+            },
+            {
+              "value": "todos",
+              "label": "Todos"
+            }
+          ]
+        },
+        {
+          "key": "count",
+          "label": "Quantidade",
+          "type": "select",
+          "options": [
+            {
+              "value": "4",
+              "label": "4 produtos"
+            },
+            {
+              "value": "8",
+              "label": "8 produtos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "plans",
+      "label": "Planos de assinatura",
+      "group": "Loja",
+      "description": "Os planos do clube, cada um com foto, opções e os botões para assinar (o link do produto de assinatura).",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Texto",
+          "type": "area",
+          "optional": true
+        },
+        {
+          "key": "button",
+          "label": "Link do título",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "link",
+          "label": "Endereço do link do título",
+          "type": "text",
+          "help": "Ex.: /clube."
+        },
+        {
+          "key": "mode",
+          "label": "Formato",
+          "type": "select",
+          "options": [
+            {
+              "value": "resumo",
+              "label": "Resumo (preço a partir de)"
+            },
+            {
+              "value": "completo",
+              "label": "Completo (as opções de cada plano)"
+            }
+          ]
+        },
+        {
+          "key": "plans",
+          "label": "Planos",
+          "type": "items",
+          "min": 1,
+          "max": 4,
+          "itemTitle": "name",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Nome",
+              "type": "text"
+            },
+            {
+              "key": "kicker",
+              "label": "Chamada",
+              "type": "text"
+            },
+            {
+              "key": "desc",
+              "label": "Descrição",
+              "type": "area"
+            },
+            {
+              "key": "image",
+              "label": "Foto",
+              "type": "image",
+              "optional": true
+            },
+            {
+              "key": "ribbon",
+              "label": "Fita de destaque",
+              "type": "text",
+              "optional": true,
+              "help": "Com fita, o cartão fica em destaque."
+            },
+            {
+              "key": "from",
+              "label": "Preço a partir de",
+              "type": "text",
+              "help": "Ex.: R$ 81,00"
+            },
+            {
+              "key": "options",
+              "label": "Opções (uma por linha)",
+              "type": "area",
+              "optional": true,
+              "help": "Ex.: 1kg (2 × 500g): R$ 81,00/mês"
+            },
+            {
+              "key": "button",
+              "label": "Botão",
+              "type": "text"
+            },
+            {
+              "key": "link",
+              "label": "Link do botão",
+              "type": "text",
+              "help": "O produto de assinatura, ex.: /produto/clube-start-semestral."
+            },
+            {
+              "key": "button2",
+              "label": "Segundo botão",
+              "type": "text",
+              "optional": true
+            },
+            {
+              "key": "link2",
+              "label": "Link do segundo botão",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "name": "Novo plano",
+            "kicker": "Chamada",
+            "desc": "Descrição do plano.",
+            "from": "R$ 0,00",
+            "button": "Assinar",
+            "link": "/loja"
+          }
+        }
+      ]
+    },
+    {
+      "type": "producer",
+      "label": "Faixa escura com foto e lista",
+      "group": "Conteúdo",
+      "description": "Foto, título, texto, uma lista (ex.: produtores parceiros) e um botão, sobre a cor principal.",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Foto",
+          "type": "image",
+          "optional": true
+        },
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "list",
+          "label": "Lista",
+          "type": "items",
+          "min": 0,
+          "max": 8,
+          "itemTitle": "name",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Nome",
+              "type": "text"
+            },
+            {
+              "key": "detail",
+              "label": "Detalhe",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "name": "Nome",
+            "detail": "Detalhe"
+          }
+        },
+        {
+          "key": "button",
+          "label": "Botão",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "link",
+          "label": "Link do botão",
+          "type": "text",
+          "help": "Ex.: /loja, /clube ou um endereço completo. Vazio: abre o WhatsApp da loja."
+        }
+      ]
+    },
+    {
+      "type": "people",
+      "label": "Equipe",
+      "group": "Conteúdo",
+      "description": "Cartões com nome, função e texto.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "items",
+          "label": "Pessoas",
+          "type": "items",
+          "min": 1,
+          "max": 6,
+          "itemTitle": "name",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Nome",
+              "type": "text"
+            },
+            {
+              "key": "role",
+              "label": "Função",
+              "type": "text"
+            },
+            {
+              "key": "text",
+              "label": "Texto",
+              "type": "area"
+            }
+          ],
+          "newItem": {
+            "name": "Nome",
+            "role": "Função",
+            "text": "Texto."
+          }
+        }
+      ]
+    },
+    {
+      "type": "steps",
+      "label": "Passos",
+      "group": "Conteúdo",
+      "description": "Passos numerados (como funciona) ou o caminho (do produtor até a casa do cliente).",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "variant",
+          "label": "Formato",
+          "type": "select",
+          "options": [
+            {
+              "value": "passos",
+              "label": "Passos numerados, fundo claro"
+            },
+            {
+              "value": "caminho",
+              "label": "Caminho em linha"
+            }
+          ]
+        },
+        {
+          "key": "items",
+          "label": "Passos",
+          "type": "items",
+          "min": 1,
+          "max": 6,
+          "itemTitle": "title",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Título",
+              "type": "text"
+            },
+            {
+              "key": "text",
+              "label": "Texto",
+              "type": "area"
+            }
+          ],
+          "newItem": {
+            "title": "Novo passo",
+            "text": "Texto."
+          }
+        }
+      ]
+    },
+    {
+      "type": "values",
+      "label": "Valores",
+      "group": "Conteúdo",
+      "description": "Uma lista de palavras grandes sobre a cor principal.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "items",
+          "label": "Valores",
+          "type": "items",
+          "min": 1,
+          "max": 10,
+          "itemTitle": "label",
+          "fields": [
+            {
+              "key": "label",
+              "label": "Valor",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "label": "Valor"
+          }
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "label": "Perguntas frequentes",
+      "group": "Conteúdo",
+      "description": "Perguntas que abrem a resposta, e uma nota com o link do WhatsApp.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "items",
+          "label": "Perguntas",
+          "type": "items",
+          "min": 1,
+          "max": 12,
+          "itemTitle": "q",
+          "fields": [
+            {
+              "key": "q",
+              "label": "Pergunta",
+              "type": "text"
+            },
+            {
+              "key": "a",
+              "label": "Resposta",
+              "type": "area"
+            }
+          ],
+          "newItem": {
+            "q": "Nova pergunta?",
+            "a": "Resposta."
+          }
+        },
+        {
+          "key": "note",
+          "label": "Nota abaixo",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "noteLink",
+          "label": "Texto do link do WhatsApp",
+          "type": "text",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Texto",
+      "group": "Conteúdo",
+      "description": "Título e texto corrido.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Texto",
+          "type": "area"
+        }
+      ]
+    },
+    {
+      "type": "perks",
+      "label": "Vantagens",
+      "group": "Conteúdo",
+      "description": "Ícone, título e texto lado a lado (entrega, pagamento, atendimento...).",
+      "fields": [
+        {
+          "key": "items",
+          "label": "Vantagens",
+          "type": "items",
+          "min": 1,
+          "max": 4,
+          "itemTitle": "title",
+          "fields": [
+            {
+              "key": "image",
+              "label": "Ícone",
+              "type": "image",
+              "optional": true
+            },
+            {
+              "key": "title",
+              "label": "Título",
+              "type": "text"
+            },
+            {
+              "key": "text",
+              "label": "Texto",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "title": "Vantagem",
+            "text": "Texto."
+          }
+        }
+      ]
+    },
+    {
+      "type": "visit",
+      "label": "Visite a loja física",
+      "group": "Contato",
+      "description": "Endereço ({endereco}), horário, telefone ({telefone}), o botão de rota e o mapa. O link /#cafeteria leva até aqui.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "lede",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "hours",
+          "label": "Horário",
+          "type": "area"
+        },
+        {
+          "key": "button",
+          "label": "Botão da rota",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "label": "Fale com a gente",
+      "group": "Contato",
+      "description": "E-mail e WhatsApp da loja e um formulário que manda a mensagem pelo WhatsApp. O link /#contato leva até aqui.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Título",
+          "type": "text"
+        },
+        {
+          "key": "lede",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "button",
+          "label": "Botão do formulário",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "footer",
+      "label": "Rodapé",
+      "group": "Global",
+      "global": true,
+      "description": "Logotipo, texto, redes, links da loja, institucional e atendimento. Aparece em todas as páginas.",
+      "fields": [
+        {
+          "key": "logoImage",
+          "label": "Logo (imagem)",
+          "type": "image",
+          "optional": true,
+          "help": "Sem imagem, vale o logotipo da loja."
+        },
+        {
+          "key": "text",
+          "label": "Texto",
+          "type": "area"
+        },
+        {
+          "key": "facebook",
+          "label": "Facebook (endereço)",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "youtube",
+          "label": "YouTube (endereço)",
+          "type": "text",
+          "optional": true
+        },
+        {
+          "key": "links",
+          "label": "Links da loja",
+          "type": "items",
+          "min": 0,
+          "max": 8,
+          "itemTitle": "label",
+          "fields": [
+            {
+              "key": "label",
+              "label": "Texto",
+              "type": "text"
+            },
+            {
+              "key": "link",
+              "label": "Link",
+              "type": "text"
+            }
+          ],
+          "newItem": {
+            "label": "Novo link",
+            "link": "/loja"
+          }
+        },
+        {
+          "key": "hours",
+          "label": "Horário de atendimento",
+          "type": "area",
+          "optional": true
+        },
+        {
+          "key": "legal",
+          "label": "Linha legal",
+          "type": "text",
+          "optional": true,
+          "help": "Ex.: razão social e CNPJ."
+        },
+        {
+          "key": "seals",
+          "label": "Selos de pagamento e site seguro",
+          "type": "select",
+          "options": [
+            {
+              "value": "sim",
+              "label": "Sim"
+            },
+            {
+              "value": "nao",
+              "label": "Não"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sectionDefaults": {
+    "header": {
+      "notice": "Frete grátis em compras acima de R$ 199. Enviamos para todo o Brasil.",
+      "logoImage": "",
+      "shopLabel": "Cafés",
+      "links": [
+        {
+          "label": "Cafeteria",
+          "link": "/#cafeteria"
+        },
+        {
+          "label": "Contato",
+          "link": "/#contato"
+        }
+      ]
+    },
+    "hero": {
+      "title": "Café especial, torrado perto de você.",
+      "subtitle": "Escolhemos lotes de produtores da região, provamos um por um e torramos com perfil próprio. Chega à sua casa com torra fresca, em grãos ou moído.",
+      "button": "Ver os cafés",
+      "link": "/loja",
+      "button2": "Conhecer o clube",
+      "link2": "/clube",
+      "facts": [
+        {
+          "title": "Lotes acima de 84 pontos",
+          "text": "avaliados na escala SCA"
+        },
+        {
+          "title": "Torra sempre fresca",
+          "text": "em 250g ou 1kg"
+        },
+        {
+          "title": "Frete grátis",
+          "text": "acima de R$ 199"
+        }
+      ],
+      "image": "/_template/img/cafe.svg",
+      "lot": "sim"
+    },
+    "intro": {
+      "title": "Café de qualidade, feito por gente daqui.",
+      "lead": "Somos cafeteria, loja e torrefação. Selecionamos cafés da região, torramos e enviamos com respeito à origem e atenção a cada detalhe.",
+      "image": "/_template/img/cafe.svg"
+    },
+    "categories": {
+      "items": [
+        {
+          "image": "/_template/img/grao.svg",
+          "title": "Cafés especiais",
+          "small": "Lotes com produtor e pontuação",
+          "link": "/loja"
+        },
+        {
+          "image": "/_template/img/grao.svg",
+          "title": "Café gourmet",
+          "small": "Blends da casa",
+          "link": "/loja"
+        },
+        {
+          "image": "/_template/img/grao.svg",
+          "title": "Cápsulas",
+          "small": "Café especial em cápsula",
+          "link": "/loja"
+        },
+        {
+          "image": "/_template/img/grao.svg",
+          "title": "Acessórios",
+          "small": "Filtros, balança, moedor",
+          "link": "/loja"
+        },
+        {
+          "image": "/_template/img/xicara.svg",
+          "title": "Clube",
+          "small": "Café fresco todo mês",
+          "link": "/clube"
+        }
+      ]
+    },
+    "lots": {
+      "title": "Lotes disponíveis agora",
+      "text": "Cada café traz quem plantou, onde e a nota que recebeu na prova.",
+      "button": "Ver todos os cafés",
+      "source": "produtor",
+      "count": "3",
+      "priceLabel": "A partir de"
+    },
+    "shelf": {
+      "title": "Mais vendidos",
+      "button": "Ir para a loja",
+      "source": "sem-produtor",
+      "count": "4"
+    },
+    "plans": {
+      "title": "Clube de assinatura",
+      "text": "Um café selecionado por mês, torrado na semana do envio. Em grãos ou moído.",
+      "button": "Comparar planos",
+      "link": "/clube",
+      "mode": "resumo",
+      "plans": [
+        {
+          "name": "Moído",
+          "kicker": "Pronto para coar",
+          "desc": "Pacotes de 500g, moídos para coado.",
+          "image": "/_template/img/xicara.svg",
+          "ribbon": "",
+          "from": "R$ 79,00",
+          "options": "1kg por mês: R$ 79,00\n2kg por mês: R$ 158,00",
+          "button": "Assinar",
+          "link": "/loja",
+          "button2": "",
+          "link2": ""
+        },
+        {
+          "name": "Variedade",
+          "kicker": "Um café diferente por mês",
+          "desc": "Cafés especiais em 250g, um de cada origem.",
+          "image": "",
+          "ribbon": "Mais variedade",
+          "from": "R$ 89,00",
+          "options": "500g por mês: R$ 89,00\n1kg por mês: R$ 169,00",
+          "button": "Assinar",
+          "link": "/loja",
+          "button2": "",
+          "link2": ""
+        },
+        {
+          "name": "Grãos",
+          "kicker": "Para quem mói na hora",
+          "desc": "Pacotes de 1kg em grãos.",
+          "image": "/_template/img/grao.svg",
+          "ribbon": "",
+          "from": "R$ 99,00",
+          "options": "1kg por mês: R$ 99,00\n2kg por mês: R$ 189,00",
+          "button": "Assinar",
+          "link": "/loja",
+          "button2": "",
+          "link2": ""
+        }
+      ]
+    },
+    "producer": {
+      "image": "/_template/img/cafe.svg",
+      "title": "Compramos de quem planta perto da gente.",
+      "text": "Muitos cafés de alta qualidade da nossa região seguem direto para exportação. Nós selecionamos esses lotes, torramos e distribuímos com respeito à origem.",
+      "list": [
+        {
+          "name": "Sítio Boa Vista",
+          "detail": "1.200 m"
+        },
+        {
+          "name": "Fazenda Santa Luzia",
+          "detail": "1.100 m"
+        },
+        {
+          "name": "Sítio São José",
+          "detail": "1.050 m"
+        }
+      ],
+      "button": "Conhecer nossa história",
+      "link": "/sobre"
+    },
+    "people": {
+      "title": "Quem cuida do seu café",
+      "items": [
+        {
+          "name": "Mestre de torra",
+          "role": "Classificador e provador",
+          "text": "Prova cada lote que chega e desenvolve o perfil de torra de cada café."
+        },
+        {
+          "name": "Barista",
+          "role": "Cafeteria",
+          "text": "Cuida da experiência na xícara, para cada café ser servido do jeito que merece."
+        }
+      ]
+    },
+    "steps": {
+      "title": "Como funciona",
+      "variant": "passos",
+      "items": [
+        {
+          "title": "Escolha o plano",
+          "text": "Com a quantidade que você consome no mês."
+        },
+        {
+          "title": "Diga como prefere",
+          "text": "Em grãos ou moído. A torra é definida por nós para cada café."
+        },
+        {
+          "title": "Assine pelo site",
+          "text": "Pague no cartão e acompanhe as entregas em Minha conta."
+        }
+      ]
+    },
+    "values": {
+      "title": "O que nos guia",
+      "items": [
+        {
+          "label": "Qualidade"
+        },
+        {
+          "label": "Origem"
+        },
+        {
+          "label": "Respeito"
+        },
+        {
+          "label": "Frescor"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Dúvidas frequentes",
+      "items": [
+        {
+          "q": "Posso receber os cafés em grãos?",
+          "a": "Sim. Escolha em grãos ou moído na hora de comprar ou assinar."
+        },
+        {
+          "q": "Como conservar o café depois de aberto?",
+          "a": "Em pote bem fechado, longe de luz, calor e umidade."
+        }
+      ],
+      "note": "Ainda com dúvida?",
+      "noteLink": "Fale no WhatsApp"
+    },
+    "text": {
+      "title": "Título",
+      "text": "Escreva aqui o texto da página."
+    },
+    "perks": {
+      "items": [
+        {
+          "image": "",
+          "title": "Entrega para todo o Brasil",
+          "text": "Enviamos com rastreio."
+        },
+        {
+          "image": "",
+          "title": "Direto da torrefação",
+          "text": "Torra fresca na sua casa."
+        },
+        {
+          "image": "",
+          "title": "Atendimento humano",
+          "text": "Pelo WhatsApp e por e-mail."
+        },
+        {
+          "image": "",
+          "title": "Pagamento seguro",
+          "text": "Cartão de crédito e PIX."
+        }
+      ]
+    },
+    "visit": {
+      "title": "Venha tomar um café com a gente.",
+      "lede": "Nossa cafeteria e loja ficam junto da torrefação.",
+      "hours": "Seg a sex, 9h às 18h\nSábado, 9h às 13h",
+      "button": "Traçar rota"
+    },
+    "contact": {
+      "title": "Fale com a gente",
+      "lede": "Dúvidas sobre moagem, presentes corporativos ou o clube? Respondemos por e-mail ou WhatsApp.",
+      "button": "Enviar pelo WhatsApp"
+    },
+    "footer": {
+      "logoImage": "",
+      "text": "Cafeteria, loja e torrefação.",
+      "facebook": "",
+      "youtube": "",
+      "links": [
+        {
+          "label": "Cafés especiais",
+          "link": "/loja"
+        },
+        {
+          "label": "Acessórios",
+          "link": "/loja"
+        },
+        {
+          "label": "Clube de assinatura",
+          "link": "/clube"
+        }
+      ],
+      "hours": "Seg a sex, 9h às 18h\nSábado, 9h às 13h",
+      "legal": "{empresa}",
+      "seals": "sim"
+    }
+  },
+  "defaults": {
+    "theme": {
+      "palette": "mata",
+      "fonts": "bricolage"
+    },
+    "pages": [
+      {
+        "title": "Início",
+        "slug": "/",
+        "menu": false,
+        "seoTitle": "",
+        "seoDescription": "",
+        "sections": [
+          "hero",
+          "categories",
+          "lots",
+          "producer",
+          "plans",
+          "shelf",
+          "visit",
+          "perks",
+          "contact"
+        ]
+      },
+      {
+        "title": "Clube de assinatura",
+        "slug": "/clube",
+        "menu": true,
+        "seoTitle": "",
+        "seoDescription": "",
+        "sections": [
+          {
+            "type": "hero",
+            "props": {
+              "title": "Café torrado na semana, na sua porta todo mês.",
+              "subtitle": "Escolha o plano, a quantidade e se prefere em grãos ou moído. Nós selecionamos o café e enviamos com torra fresca.",
+              "button": "Escolher meu plano",
+              "link": "/clube#planos",
+              "button2": "Tirar dúvidas",
+              "link2": "/clube#duvidas",
+              "facts": [],
+              "lot": "nao"
+            }
+          },
+          "steps",
+          {
+            "type": "plans",
+            "props": {
+              "title": "Planos e valores",
+              "text": "Valores mensais.",
+              "button": "",
+              "mode": "completo"
+            }
+          },
+          "faq"
+        ]
+      },
+      {
+        "title": "Sobre nós",
+        "slug": "/sobre",
+        "menu": true,
+        "seoTitle": "",
+        "seoDescription": "",
+        "sections": [
+          "intro",
+          "people",
+          {
+            "type": "steps",
+            "props": {
+              "title": "Do sítio até a sua casa",
+              "variant": "caminho",
+              "items": [
+                {
+                  "title": "Seleção na região",
+                  "text": "Buscamos lotes de produtores da região."
+                },
+                {
+                  "title": "Prova e torra",
+                  "text": "Cada café recebe um perfil de torra próprio."
+                },
+                {
+                  "title": "Envio fresco",
+                  "text": "Torramos perto do envio e mandamos para todo o Brasil."
+                }
+              ]
+            }
+          },
+          "values",
+          "visit"
+        ]
+      }
+    ],
+    "newPage": [
+      "intro",
+      "text",
+      "visit"
+    ]
+  },
+  "variableKeys": [
+    "empresa",
+    "whatsapp",
+    "telefone",
+    "email",
+    "endereco",
+    "instagram"
+  ],
+  "variables": "Os textos aceitam {empresa}, {whatsapp}, {telefone}, {email}, {endereco} e {instagram}: o site mostra os contatos de Loja › Dados da loja › Contatos do site."
+}

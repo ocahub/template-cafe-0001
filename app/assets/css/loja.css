@@ -1,0 +1,44 @@
+/*
+ * As paginas do kit (loja, produto, produtor, carrinho, conta, checkout) com a
+ * cara do template: as cores e a fonte da aparencia escolhida no painel.
+ */
+.tpl {
+  --rh-font: var(--font);
+  --rh-color-bg: var(--nevoa);
+  --rh-color-text: var(--torra);
+  --rh-color-muted: var(--torra-2);
+  --rh-color-border: var(--linha);
+  --rh-color-surface: #FFFFFF;
+  --rh-color-accent: var(--cereja);
+  --rh-color-accent-contrast: #FFFFFF;
+  --rh-radius: 14px;
+  --rh-radius-sm: 6px;
+  --rh-max-width: 1240px;
+}
+
+.rh-form__title, .rh-shelf__title, .rh-product__name, .rh-section-title, .rh-panel__title {
+  font-weight: 800;
+  font-variation-settings: "wdth" 80;
+  letter-spacing: -.03em;
+  color: var(--mata);
+}
+.rh-shelf__title, .rh-form__title { font-size: clamp(36px, 5vw, 64px); line-height: .95; }
+.rh-product__name { font-size: clamp(32px, 4vw, 52px); line-height: .95; }
+.rh-button { min-height: 52px; border-radius: 999px; background: var(--cereja); font-weight: 600; }
+.rh-button:hover { background: var(--cereja-2); opacity: 1; }
+.rh-card__badge { background: var(--mata); color: #fff; }
+.rh-shelf, .rh-product, .rh-cart, .rh-checkout, .rh-account, .rh-purchase, .rh-auth, .rh-manufacturer { padding-top: 48px; padding-bottom: 96px; }
+
+/* Ferramentas do cabecalho: a conta e a sacola do kit no lugar dos icones da proposta. */
+.t-tools { display: flex; align-items: center; gap: 6px; }
+.t-tools .rh-account-button, .t-tools .rh-cart-button { color: var(--mata); }
+.t-tools .rh-cart-button__count { background: var(--cereja); color: #fff; }
+.t-tools .rh-account-button__label { display: none; }
+
+.site-toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 2000;
+  max-width: calc(100vw - 32px); padding: 14px 22px; border-radius: 999px;
+  background: var(--mata); color: var(--nevoa); font-size: .95rem;
+}
+.site-toast-enter-active, .site-toast-leave-active { transition: opacity .2s, transform .2s; }
+.site-toast-enter-from, .site-toast-leave-to { opacity: 0; transform: translate(-50%, 8px); }
