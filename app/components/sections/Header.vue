@@ -6,9 +6,12 @@ const { menu, editing } = useRhSite()
 const company = useRhCompany()
 const logo = computed(() => p.value.logoImage || store.value?.logoUrl || '')
 const name = computed(() => store.value?.name ?? '')
+// Blog (00049): no menu quando o site tem post no ar.
+const blog = useRhBlogInfo()
 const links = computed(() => [
   { to: '/loja', label: company.text(p.value.shopLabel) || 'Loja' },
   ...menu.value.map(m => ({ to: m.slug, label: m.title })),
+  ...(blog.enabled ? [{ to: blog.path, label: 'Blog' }] : []),
   ...(p.value.links ?? []).map((l: { label: string, link: string }) => ({ to: l.link || '/', label: company.text(l.label) }))
 ])
 const route = useRoute()
