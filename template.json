@@ -1,7 +1,7 @@
 {
   "id": "template-cafe-0001",
   "name": "Café 0001 · Torrefação",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Loja de café especial com clube de assinatura: produtos com produtor, planos, cafeteria e contato. Verde-mata, cereja e pergaminho.",
   "modules": [
     "sales:CreateProduct"
@@ -84,6 +84,10 @@
       "group": "Global",
       "global": true,
       "description": "Faixa de aviso, logotipo, menu, conta e sacola. Aparece em todas as páginas.",
+      "skeleton": [
+        "@dark @center text:1",
+        "nav"
+      ],
       "fields": [
         {
           "key": "notice",
@@ -137,6 +141,9 @@
       "label": "Abertura com foto",
       "group": "Topo",
       "description": "Título grande, texto, dois botões, destaques e a foto. Fora da inicial, mostra o caminho (Início / página).",
+      "skeleton": [
+        "title:lg text:2 buttons stats:3 | image:tall"
+      ],
       "fields": [
         {
           "key": "title",
@@ -224,6 +231,9 @@
       "label": "Apresentação de página",
       "group": "Topo",
       "description": "Topo de página interna: caminho, título, texto e foto ao lado.",
+      "skeleton": [
+        "@soft text:1 title text:2 | image"
+      ],
       "fields": [
         {
           "key": "title",
@@ -248,6 +258,9 @@
       "label": "Categorias com foto",
       "group": "Loja",
       "description": "Uma faixa de atalhos com foto, nome e detalhe. Cada um leva a uma página (a loja, por padrão).",
+      "skeleton": [
+        "gallery:4"
+      ],
       "fields": [
         {
           "key": "items",
@@ -293,6 +306,10 @@
       "label": "Produtos com produtor",
       "group": "Loja",
       "description": "Cartões grandes dos produtos com produtor (fabricante): foto, nome, quem produziu e o preço.",
+      "skeleton": [
+        "title text:1",
+        "products:3"
+      ],
       "fields": [
         {
           "key": "title",
@@ -355,6 +372,10 @@
       "label": "Mais vendidos",
       "group": "Loja",
       "description": "Uma prateleira compacta de produtos: foto, nome e preço.",
+      "skeleton": [
+        "title",
+        "products:5"
+      ],
       "fields": [
         {
           "key": "title",
@@ -404,6 +425,10 @@
       "label": "Planos de assinatura",
       "group": "Loja",
       "description": "Os planos do clube, cada um com foto, opções e os botões para assinar (o link do produto de assinatura).",
+      "skeleton": [
+        "@center title text:1",
+        "cards:3"
+      ],
       "fields": [
         {
           "key": "title",
@@ -531,6 +556,9 @@
       "label": "Faixa escura com foto e lista",
       "group": "Conteúdo",
       "description": "Foto, título, texto, uma lista (ex.: produtores parceiros) e um botão, sobre a cor principal.",
+      "skeleton": [
+        "@dark image | title text items:3 button"
+      ],
       "fields": [
         {
           "key": "image",
@@ -591,6 +619,10 @@
       "label": "Equipe",
       "group": "Conteúdo",
       "description": "Cartões com nome, função e texto.",
+      "skeleton": [
+        "@center title",
+        "quotes:3"
+      ],
       "fields": [
         {
           "key": "title",
@@ -634,6 +666,10 @@
       "label": "Passos",
       "group": "Conteúdo",
       "description": "Passos numerados (como funciona) ou o caminho (do produtor até a casa do cliente).",
+      "skeleton": [
+        "@center title",
+        "steps:4"
+      ],
       "fields": [
         {
           "key": "title",
@@ -686,6 +722,9 @@
       "label": "Valores",
       "group": "Conteúdo",
       "description": "Uma lista de palavras grandes sobre a cor principal.",
+      "skeleton": [
+        "@dark @center title chips:5"
+      ],
       "fields": [
         {
           "key": "title",
@@ -717,6 +756,11 @@
       "label": "Perguntas frequentes",
       "group": "Conteúdo",
       "description": "Perguntas que abrem a resposta, e uma nota com o link do WhatsApp.",
+      "skeleton": [
+        "@center title",
+        "faq:4",
+        "@center text:1"
+      ],
       "fields": [
         {
           "key": "title",
@@ -766,6 +810,9 @@
       "label": "Texto",
       "group": "Conteúdo",
       "description": "Título e texto corrido.",
+      "skeleton": [
+        "title text:6"
+      ],
       "fields": [
         {
           "key": "title",
@@ -784,6 +831,9 @@
       "label": "Vantagens",
       "group": "Conteúdo",
       "description": "Ícone, título e texto lado a lado (entrega, pagamento, atendimento...).",
+      "skeleton": [
+        "icons:4"
+      ],
       "fields": [
         {
           "key": "items",
@@ -822,6 +872,9 @@
       "label": "Visite a loja física",
       "group": "Contato",
       "description": "Endereço ({endereco}), horário, telefone ({telefone}), o botão de rota e o mapa. O link /#cafeteria leva até aqui.",
+      "skeleton": [
+        "title text:2 items:3 button | map"
+      ],
       "fields": [
         {
           "key": "title",
@@ -850,6 +903,9 @@
       "label": "Fale com a gente",
       "group": "Contato",
       "description": "E-mail e WhatsApp da loja e um formulário que manda a mensagem pelo WhatsApp. O link /#contato leva até aqui.",
+      "skeleton": [
+        "title text:2 items:2 | form"
+      ],
       "fields": [
         {
           "key": "title",
@@ -874,6 +930,9 @@
       "group": "Global",
       "global": true,
       "description": "Logotipo, texto, redes, links da loja, institucional e atendimento. Aparece em todas as páginas.",
+      "skeleton": [
+        "@dark logo text:2 | links:3"
+      ],
       "fields": [
         {
           "key": "logoImage",
