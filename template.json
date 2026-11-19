@@ -3,6 +3,7 @@
   "name": "Café 0001 · Torrefação",
   "version": "1.1.0",
   "description": "Loja de café especial com clube de assinatura: produtos com produtor, planos, cafeteria e contato. Verde-mata, cereja e pergaminho.",
+  "cover": "preview.png",
   "modules": [
     "sales:CreateProduct"
   ],
