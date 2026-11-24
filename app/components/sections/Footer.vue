@@ -54,5 +54,6 @@ const wa = computed(() => company.whatsappUrl())
         <span>{{ v.endereco }}</span>
       </div>
     </div>
+    <div style="text-align:center;padding:10px 16px;font-size:.8rem;opacity:.85"><RhCookiePreferences /></div>
   </footer>
 </template>
